@@ -6,9 +6,8 @@ class BotCollection extends React.Component {
     return (
       <div className='ui four column grid'>
         <div className='row'>
-          Collection of all drinks
           {this.props.drinks.map(drink => (
-            <DrinkCard beer={drink} />
+            <DrinkCard beer={drink} handleBeer={this.props.addBeer} />
           ))}
         </div>
       </div>

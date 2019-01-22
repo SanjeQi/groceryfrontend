@@ -7,7 +7,8 @@ const URL = 'http://localhost:5000/api/v1/todos'
 
 class BotsPage extends React.Component {
   state = {
-    drinks: []
+    drinks: [],
+    userBeer: []
   }
 
   componentDidMount () {
@@ -24,11 +25,25 @@ class BotsPage extends React.Component {
       )
   }
 
+  addBeer = beer => {
+    this.setState({ userBeer: [...this.state.userBeer, beer] })
+  }
+
+  delBeer = beer => {
+    let index = this.state.userBeer.indexOf(beer)
+    this.setState(state => {
+      if (index !== -1) {
+        this.state.userBeer.splice(index, 1)
+      }
+      return state
+    })
+  }
+
   render () {
     return (
       <div>
-        <YourBotArmy />
-        <BotCollection drinks={this.state.drinks} />
+        <YourBotArmy drinks={this.state.userBeer} delBeer={this.delBeer} />
+        <BotCollection drinks={this.state.drinks} addBeer={this.addBeer} />
       </div>
     )
   }
