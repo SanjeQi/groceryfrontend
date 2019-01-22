@@ -1,7 +1,7 @@
 import React from 'react'
 import BotCollection from './BotCollection'
 import YourBotArmy from './YourBotArmy'
-import BotSpecs from '../components/BotSpecs'
+import DrinkSpecs from '../components/DrinkSpecs'
 
 const URL = 'http://localhost:5000/api/v1/todos'
 
@@ -45,8 +45,18 @@ class BotsPage extends React.Component {
   render () {
     return (
       <div>
-        <YourBotArmy drinks={this.state.userBeer} delBeer={this.delBeer} />
-        <BotCollection drinks={this.state.drinks} addBeer={this.addBeer} />
+        <YourBotArmy
+          drinks={this.state.userBeer}
+          delBeer={this.delBeer}
+          handleMouseEnter={this.handleMouseEnter}
+          handleMouseLeave={this.handleMouseLeave}
+        />
+        <BotCollection
+          drinks={this.state.drinks}
+          addBeer={this.addBeer}
+          handleMouseEnter={this.handleMouseEnter}
+          handleMouseLeave={this.handleMouseLeave}
+        />
       </div>
     )
   }

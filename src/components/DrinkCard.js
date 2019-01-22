@@ -2,10 +2,15 @@ import React from 'react'
 import './DrinkCard.css'
 
 const DrinkCard = props => {
-  const { beer, handleBeer } = props
+  const { beer, handleBeer, handleMouseEnter, handleMouseLeave } = props
   return (
     <div className='card_wrapper'>
-      <div className='card' onClick={() => handleBeer(beer)}>
+      <div
+        className='card'
+        onClick={() => handleBeer(beer)}
+        onMouseEnter={event => handleMouseEnter()}
+        onMouseLeave={event => handleMouseLeave()}
+      >
         <div className='card__img'>
           <img src={beer.image_url} />
         </div>

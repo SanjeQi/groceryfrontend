@@ -7,7 +7,12 @@ class BotCollection extends React.Component {
       <div className='ui four column grid'>
         <div className='row'>
           {this.props.drinks.map(drink => (
-            <DrinkCard beer={drink} handleBeer={this.props.addBeer} />
+            <DrinkCard
+              beer={drink}
+              handleBeer={this.props.addBeer}
+              handleMouseEnter={this.props.handleMouseEnter}
+              handleMouseLeave={this.props.handleMouseLeave}
+            />
           ))}
         </div>
       </div>
