@@ -8,8 +8,11 @@ const URL = 'http://localhost:5000/api/v1/todos'
 class BotsPage extends React.Component {
   state = {
     drinks: [],
-    userBeer: []
+    userBeer: [],
+    hovering: false
   }
+  handleMouseEnter = () => this.setState({ hovering: true })
+  handleMouseLeave = () => this.setState({ hovering: false })
 
   componentDidMount () {
     this.getAllBeers()
