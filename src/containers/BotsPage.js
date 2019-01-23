@@ -57,6 +57,7 @@ class BotsPage extends React.Component {
           handleMouseEnter={this.handleMouseEnter}
           handleMouseLeave={this.handleMouseLeave}
         />
+        <DrinkSpecs />
       </div>
     )
   }

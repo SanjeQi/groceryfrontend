@@ -8,11 +8,14 @@ const DrinkCard = props => {
       <div
         className='card'
         onClick={() => handleBeer(beer)}
-        onMouseEnter={event => handleMouseEnter()}
-        onMouseLeave={event => handleMouseLeave()}
+        
       >
-        <div className='card__img'>
+        <div className='card__img' >
+        <div className='image_container'
+        onMouseEnter={event => handleMouseEnter()}
+        onMouseLeave={event => handleMouseLeave()}>
           <img src={beer.image_url} />
+        </div>
         </div>
         {/* <div className='card_content'>
           <p className='card_content__header'>
