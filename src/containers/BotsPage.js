@@ -9,10 +9,8 @@ class BotsPage extends React.Component {
   state = {
     drinks: [],
     userBeer: [],
-    hovering: false
+    searchTerm: ''
   }
-  handleMouseEnter = () => this.setState({ hovering: true })
-  handleMouseLeave = () => this.setState({ hovering: false })
 
   componentDidMount () {
     this.getAllBeers()
@@ -26,6 +24,16 @@ class BotsPage extends React.Component {
           drinks: drinks.drinks
         })
       )
+  }
+
+  get filteredBeer () {
+    return this.state.drinks.filter(drink =>
+      drink.name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
+    )
+  }
+
+  searchInput = event => {
+    this.setState({ searchTerm: event.target.value })
   }
 
   addBeer = beer => {
@@ -45,6 +53,7 @@ class BotsPage extends React.Component {
   render () {
     return (
       <div>
+        {}
         <YourBotArmy
           drinks={this.state.userBeer}
           delBeer={this.delBeer}
@@ -52,12 +61,10 @@ class BotsPage extends React.Component {
           handleMouseLeave={this.handleMouseLeave}
         />
         <BotCollection
-          drinks={this.state.drinks}
+          drinks={this.filteredBeer}
           addBeer={this.addBeer}
-          handleMouseEnter={this.handleMouseEnter}
-          handleMouseLeave={this.handleMouseLeave}
+          searchInput={this.searchInput}
         />
-        <DrinkSpecs />
       </div>
     )
   }
